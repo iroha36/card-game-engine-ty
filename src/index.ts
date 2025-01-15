@@ -1,15 +1,15 @@
-import { AutoBattle } from './models/game/AutoBattle';
+import { AutoBattleService } from './application/services/AutoBattleService';
 
 async function main() {
   console.log('カードゲーム自動対戦を開始します...');
   
-  const battle = new AutoBattle();
+  const battle = new AutoBattleService();
   
   try {
-    await battle.startAutoBattle();
+    await battle.startBattle();
   } catch (error) {
     console.error('エラーが発生しました:', error);
   }
 }
 
-main().catch(console.error);
+main().catch(console.error); 

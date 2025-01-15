@@ -1,13 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es2016",
+    "target": "es2020",
     "module": "commonjs",
-    "rootDir": "./src",
     "outDir": "./dist",
-    "esModuleInterop": true,
+    "rootDir": "./src",
     "strict": true,
+    "esModuleInterop": true,
     "skipLibCheck": true,
-    "forceConsistentCasingInFileNames": true
+    "forceConsistentCasingInFileNames": true,
+    "baseUrl": "src",
+    "paths": {
+      "@domain/*": ["domain/*"],
+      "@app/*": ["application/*"],
+      "@infra/*": ["infrastructure/*"]
+    }
   },
   "include": ["src/**/*"],
   "exclude": ["node_modules"]
