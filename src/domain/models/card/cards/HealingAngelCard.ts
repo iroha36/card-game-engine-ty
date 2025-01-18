@@ -1,9 +1,9 @@
 import { FollowerCard } from '../types/FollowerCard';
-import { createCardId } from '../../types/primitives';
+import { createCardId, PlayerId } from '../../types/primitives';
 import { PP } from '../../valueObjects/PP';
 import { GameState } from '../../game/GameState';
-import { PlayerId } from '../../types/primitives';
 import { Effect, EffectType, TargetType } from '../Effect';
+import { CharacterClass, Rarity } from '../../types/enums';
 
 export class HealingAngelCard extends FollowerCard {
   constructor() {
@@ -29,7 +29,10 @@ export class HealingAngelCard extends FollowerCard {
       effects: [healEffect],
       attack: 1,
       defense: 1,
-      canAttack: true
+      canAttack: true,
+      class: CharacterClass.HAVEN,
+      rarity: Rarity.BRONZE,
+      description: 'プレイ時：自分のリーダーを2回復'
     });
   }
 

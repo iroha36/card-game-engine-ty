@@ -1,8 +1,8 @@
-import { FollowerCard, FollowerCardProps } from '../types/FollowerCard';
-import { createCardId } from '../../types/primitives';
+import { FollowerCard } from '../types/FollowerCard';
+import { createCardId, PlayerId } from '../../types/primitives';
 import { PP } from '../../valueObjects/PP';
 import { GameState } from '../../game/GameState';
-import { PlayerId } from '../../types/primitives';
+import { CharacterClass, Rarity } from '../../types/enums';
 
 export class GoblinCard extends FollowerCard {
   constructor() {
@@ -13,7 +13,10 @@ export class GoblinCard extends FollowerCard {
       effects: [],
       attack: 1,
       defense: 2,
-      canAttack: true
+      canAttack: true,
+      class: CharacterClass.NEUTRAL,
+      rarity: Rarity.BRONZE,
+      description: '基本的な1/2フォロワー'
     });
   }
 

@@ -7,6 +7,7 @@ import { GoblinCard } from '../../domain/models/card/cards/GoblinCard';
 import { HealingAngelCard } from '../../domain/models/card/cards/HealingAngelCard';
 import { Board } from '../../domain/models/game/Board';
 import { FollowerCard } from '../../domain/models/card/types/FollowerCard';
+import { DragonWarriorCard } from '../../domain/models/card/cards/DragonWarriorCard';
 
 export class AutoBattleService {
   private gameState: GameState;
@@ -45,9 +46,12 @@ export class AutoBattleService {
   }
 
   private createInitialDeck() {
-    return Array(20).fill(null).map(() => 
-      Math.random() > 0.5 ? new GoblinCard() : new HealingAngelCard()
-    );
+    return Array(20).fill(null).map(() => {
+      const random = Math.random();
+      if (random < 0.4) return new GoblinCard();
+      if (random < 0.7) return new HealingAngelCard();
+      return new DragonWarriorCard();
+    });
   }
 
   async startBattle(): Promise<void> {

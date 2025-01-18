@@ -2,11 +2,15 @@ import { Card, CardProps } from '../Card';
 import { GameState } from '../../game/GameState';
 import { PlayerId } from '../../types/primitives';
 import { Health } from '../../valueObjects/Health';
+import { CharacterClass, Rarity } from '../../types/enums';
 
 export interface FollowerCardProps extends CardProps {
   readonly attack: number;
   readonly defense: number;
   readonly canAttack: boolean;
+  readonly class: CharacterClass;
+  readonly rarity: Rarity;
+  readonly description: string;
 }
 
 export abstract class FollowerCard extends Card {
@@ -45,5 +49,14 @@ export abstract class FollowerCard extends Card {
       players: new Map(gameState.players).set(target, updatedPlayer),
       board: updatedBoard
     });
+  }
+
+  protected createUpdatedProps(attack: number, defense: number, canAttack: boolean): FollowerCardProps {
+    return {
+      ...this.followerProps,
+      attack,
+      defense,
+      canAttack
+    };
   }
 } 
